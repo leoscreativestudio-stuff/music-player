@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        audio {
+            width: 300px;
+            margin-top: 10px;
+        }
+        select {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <select id="trackSelector">
+        <option value="https://www.dropbox.com/scl/fi/okejgpr9gjh1bq74cjpya/1-01-Story-1_-Pink-Lakes-Key-Words.mp3?rlkey=hlq3ndv0fc0tkf2sbtlaq4x34&raw=1">Pink Lakes - Key Words</option>
+        <option value="https://www.dropbox.com/scl/fi/20sxbc95xmrhv66cd4r6e/1-02-Story-1_-Pink-Lakes-1.mp3?rlkey=lhh5y60dyy09bl8oc3yzsukcq&raw=1">Pink Lakes - Part 1</option>
+        <option value="https://www.dropbox.com/scl/fi/m4u71lz1x6nhd4sqs2tfl/1-03-Story-1_-Pink-Lakes-2.mp3?rlkey=4w4h250s9cznzrq158g5am37y&raw=1">Pink Lakes - Part 2</option>
+        <option value="https://www.dropbox.com/scl/fi/86h99tvys5tai9ormqpw0/1-04-Story-1_-Pink-Lakes-3.mp3?rlkey=clhqclvo6dbjvgzmjr0v8layx&raw=1">Pink Lakes - Part 3</option>
+        <option value="https://www.dropbox.com/scl/fi/rgghvauwu8lqhnnxud18h/1-05-Story-1_-Pink-Lakes-Spanish.mp3?rlkey=rbavafxlfunyf6kgmfvbo84x1&raw=1">Pink Lakes - Spanish</option>
+    </select>
+    <audio id="music" controls autoplay loop>
+        <source id="audioSource" src="https://www.dropbox.com/scl/fi/okejgpr9gjh1bq74cjpya/1-01-Story-1_-Pink-Lakes-Key-Words.mp3?rlkey=hlq3ndv0fc0tkf2sbtlaq4x34&raw=1" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const audio = document.getElementById("music");
+            const source = document.getElementById("audioSource");
+            const selector = document.getElementById("trackSelector");
+            
+            selector.addEventListener("change", function() {
+                source.src = this.value;
+                audio.load();
+                audio.play();
+            });
+        });
+    </script>
+</body>
+</html>
